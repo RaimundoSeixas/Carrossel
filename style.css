@@ -1,0 +1,65 @@
+ @import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Fredoka:wght@300..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+ body {
+   background-image: url(assets/cheerful-3d-alien-world.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+   height: 100vh;
+} 
+.item img {
+  border-radius: 10px;
+}
+
+h1 {
+   font-family: Aclonica;
+  font-size: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: rgb(25, 181, 22);
+  margin-top: -600px;
+  position: relative;
+}
+span {
+  color: rgb(168, 17, 105);
+}
+
+.banner {
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+.banner .slider {
+  position: absolute;
+  width: 200px;
+  height: 250px;
+  top: 10%;
+  left: calc(50% - 100px);
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+  animation: autoRun 15s linear infinite;
+}
+@keyframes autoRun {
+  from {
+    transform: perspective(1000px) rotateX(-19deg) rotateY(0deg);
+  }
+  to {
+    transform: perspective(1000px) rotateX(-19deg) rotateY(360deg);
+  }
+}
+.banner .slider .item {
+  position: absolute;
+  inset: 0 0 0 0;
+  transform: rotateY(
+      calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)
+    )
+    translateZ(550px);
+}
+.banner .slider .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} 
+
